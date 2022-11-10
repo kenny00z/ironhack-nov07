@@ -37,17 +37,21 @@
   - [Box Model](https://github.com/dzc1/ironhack-nov07/blob/main/section-02-css/07-box-model.html)
   - [Layout - Floats](https://github.com/dzc1/ironhack-nov07/blob/main/section-02-css/08-float-algin.html)
   - [Links & Buttons](https://github.com/dzc1/ironhack-nov07/blob/main/section-02-css/09-links-buttons.html)
-
-## Chuletas
-
-- [Markdown Cheatsheet](https://www.markdownguide.org/cheat-sheet/)
-- [Git Cheatsheet](https://education.github.com/git-cheat-sheet-education.pdf)
-- [Html Cheatsheet](https://devhints.io/html)
-- [Css Cheatsheet](https://devhints.io/css)
+  - [Menu Styling](https://github.com/dzc1/ironhack-nov07/blob/main/section-02-css/10-menu-styling.html)
+  - [Position](https://github.com/dzc1/ironhack-nov07/blob/main/section-02-css/11-position.html)
+  - [Inline vs Block](https://github.com/dzc1/ironhack-nov07/blob/main/section-02-css/12-inline-vs-block.html)
+  - [Media Queries](https://github.com/dzc1/ironhack-nov07/blob/main/section-02-css/13-media-queries.html)
+  - [Media Queries Extended](https://github.com/dzc1/ironhack-nov07/blob/main/section-02-css/14-media-queries-extended.html)
+  - [Media Query Example](https://github.com/dzc1/ironhack-nov07/blob/main/section-02-css/15-media-query-example.html)
+  - [Flex Basics](https://github.com/dzc1/ironhack-nov07/blob/main/section-02-css/16-flex-basics.html)
 
 ## Links de Ayuda
 
--[CSS Links]() -[Html Links]() -[JS Links]() -[Vue Links]()
+- [Chuletas](#Chuletas)
+  - [Markdown Cheatsheet](https://www.markdownguide.org/cheat-sheet/)
+  - [Git Cheatsheet](https://education.github.com/git-cheat-sheet-education.pdf)
+  - [Html Cheatsheet](https://devhints.io/html)
+  - [Css Cheatsheet](https://devhints.io/css)
 
 ## Comandos de Git
 
@@ -82,6 +86,28 @@ git push origin "nombre del branch/rama que estaremos apuntando"
 `Empujar` los cambios recientes a tu repositorio en la web. `Simplified`.
 
 ```bash
+git pushs
+```
+
+### Combinations
+
+#### Combination #1 - Extended
+
+Hace una combinacion de `git add commit push` usando estos comandos de `git` y usando un un operador logico `AND` con el syntax `&&`
+
+```bash
+git add . &&
+git commit -m "Texto descriptivo de los cambios recientes" &&
+git push origin "nombre del branch/rama que estaremos apuntando"
+```
+
+#### Combination #2 - Simplified
+
+Hace una combinacion de `git add commit push` usando estos comandos de `git` y usando un un operador logico `AND` con el syntax `&&`
+
+```bash
+git add . &&
+git commit -m "Texto descriptivo de los cambios recientes" &&
 git push
 ```
 
@@ -89,4 +115,10 @@ Ver los `branches` asociados al repositorio.
 
 ```bash
 git branch
+```
+
+Hacer un `pull` de los ultimos cambios de un repositorio git en gitHub a tu repo local
+
+```bash
+git pull origin "nombre del branch/rama que estaremos apuntando"
 ```
