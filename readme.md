@@ -52,6 +52,8 @@ Agregr sus canciones favoritas a esta playlist en spotify!
 
 ## Links de Ayuda
 
+- [CSS Frameworks](#css-frameworks)
+  - [Tailwind CSS](https://tailwindcss.com/)
 - [Chuletas](#Chuletas)
   - [Markdown Cheatsheet](https://www.markdownguide.org/cheat-sheet/)
   - [Git Cheatsheet](https://education.github.com/git-cheat-sheet-education.pdf)
@@ -59,6 +61,14 @@ Agregr sus canciones favoritas a esta playlist en spotify!
   - [Css Cheatsheet](https://devhints.io/css)
 - [Videos](#videos)
   - [Welcome to the Internet - Bo Burnham](https://www.youtube.com/watch?v=k1BneeJTDcU)
+- [Icon Libraries](#icon-libraries)
+  - [Font Awesome](https://fontawesome.com/)
+  - [The Noun Project](https://thenounproject.com/)
+- [Tools and Helpful Links](#tools)
+  - [CSS Grid Generator](https://cssgrid-generator.netlify.app/)
+  - [CSS Flex Generator](https://flexbox.help/)
+  - [CSS Shadows](https://htmlcssfreebies.com/css-box-shadow-examples/)
+  - [CSS Animations](https://animista.net/)
 
 ## Comandos de Git
 
