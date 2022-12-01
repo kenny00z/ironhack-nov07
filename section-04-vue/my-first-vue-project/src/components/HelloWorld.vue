@@ -1,6 +1,6 @@
 <script setup>
 defineProps({
-  msg: {
+  alexis: {
     type: String,
     required: true,
   },
@@ -9,7 +9,7 @@ defineProps({
 
 <template>
   <div class="greetings">
-    <h1 class="green">{{ msg }}</h1>
+    <h1 class="green">{{ alexis }}</h1>
   </div>
 </template>
 
