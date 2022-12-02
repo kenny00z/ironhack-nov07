@@ -8,12 +8,13 @@ import HelloWorld from "./components/HelloWorld.vue";
 // import IteratingElements from "./components/vueBasics/7-IteratingElements.vue";
 import Methods from "./components/vueBasics/7-Methods.vue";
 import ComputedProperties from "./components/vueBasics/8-ComputedProperties.vue";
+import TwoWayDataBinding from "./components/vueBasics/9-TwoWayData.vue";
 </script>
 
 <template>
   <header>
     <div class="wrapper">
-      <HelloWorld alexis="Computed Class" />
+      <HelloWorld alexis="Forms 'Two Way Data' Class" />
     </div>
   </header>
   <main>
@@ -30,8 +31,10 @@ import ComputedProperties from "./components/vueBasics/8-ComputedProperties.vue"
     <IteratingElements /> -->
     <!-- <hr />
     <Methods /> -->
-    <hr />
-    <ComputedProperties />
+    <!-- <hr />-->
+    <!-- <ComputedProperties /> -->
+    <!-- <hr /> -->
+    <TwoWayDataBinding />
   </main>
 </template>
 
