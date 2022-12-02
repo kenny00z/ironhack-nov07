@@ -1,5 +1,8 @@
 <script setup>
 import { ref, watch, reactive, computed } from "vue";
+// Importemosnos el JSON
+import jsonAnswers from "./10-watcherJSON.json";
+console.log(jsonAnswers);
 
 // EXPLICACION:
 
@@ -116,21 +119,17 @@ const movieList = reactive([
   "Ray",
 ]);
 
+// Dado que estamos mutando un array, necesitamos añadir una funcionalidad extra a la función watcher, que es la deep:true
 const addMoviePush = () => {
   movieList.push("Saving Private Ryan");
 };
-const addMovieConcat = () => {
-  movieList.value.concat([
-    "Pulp Fiction",
-    "Interstellar",
-    "Wonder",
-    "Jaws",
-    "Ray",
-    "Titanic",
-    "Life",
-    "A Scanner Darkly",
-  ]);
-};
+
+// concat devuelve una nueva matriz, por lo que podemos utilizar este enfoque para crear una nueva en lugar de mutarlas, eliminar el deep:true en la función watcher para probarlo.
+// const addMovieConcat = () => {
+//   let newMovie = "Titanic";
+//   movieList.concat(newMovie);
+//   console.log(movieList);
+// };
 
 watch(
   movieList,
@@ -139,6 +138,7 @@ watch(
   },
   // IMPORTANTISMO
   // CUANDO TRABAJAMOS CON WATCHERS ESPECIFICAMENTE TRABAJANDO WATCHERS Y APUNTANDO A DATSO NO PRIMITIVOS COMO OBJETOS Y ARRATS, NECESITAMOS EXPANDIR UN POCO EL METODO WATCH!!! CON UN OBJETO QUE SE LLAMA "{DEEP: TRUE}", SI NO EL WATCHER NO PODRA TRABAJAR CON DATOS NOPRIMITIVOS, SIEMPRE DEPENDEMOS DE ESTE OBJETO PARA PODER MUTAR O MANIPULAR ESTOS TIPOS DE DATOS!
+  // QUITAR PARA PROBAR CON EL METODO CONCAT
   { deep: true }
 );
 
@@ -179,14 +179,32 @@ watch(answer, (newVal, oldVal) => {
 // 2- De la respuesta en función a un JSON que debes crear
 // 3- El JSON será un archivo local que conteste "Yey, te gusta la pizza" si dices que sí, "Que raro eres" si dices que no y "contéstame bien" si contestas cualquier otra cosa.
 // 4- Junto a la contestación, debe aparecer una imagen divertida
+const question2 = ref("Do you like Pizza!?");
+const answer2 = ref("");
+const jsonResponse = ref("");
+const jsonImage = ref("");
+const jsonUserResponse = ref("");
 
-//EJEMPLO DEL JSON
-// [
-//   {
-//     "answer": "no",
-//     "image": "https://t3.ftcdn.net/jpg/03/36/81/88/360_F_336818845_1tvrNYhwr19LfGiC4BDAeCJzm0mVHH48.jpg"
-// }
-// ]
+// REFERENCIA -- DEPENDEMOS DE UNA IMPORTACION QUE LLAMAMOS "jsonAnswers" para traernos el valor del objeto json guardado en local.
+
+watch(answer2, async (newAnswer) => {
+  if (answer2.value.toLocaleLowerCase() === "yes") {
+    jsonResponse.value =
+      jsonAnswers[0].response + ", te encanta la pizza y la pizza te aprecia!";
+    jsonImage.value = jsonAnswers[0].image;
+    jsonUserResponse.value = jsonAnswers[0].userResponse;
+  } else if (answer2.value.toLocaleLowerCase() === "no") {
+    jsonResponse.value =
+      jsonAnswers[1].response + ", a quien no le gusta la pizza?!";
+    jsonImage.value = jsonAnswers[1].image;
+    jsonUserResponse.value = jsonAnswers[1].userResponse;
+  } else {
+    jsonResponse.value =
+      jsonAnswers[2].response + "esperando por una respuesa correcta.......";
+    jsonImage.value = jsonAnswers[2].image;
+    jsonUserResponse.value = jsonAnswers[2].userResponse;
+  }
+});
 </script>
 
 <template>
@@ -223,7 +241,7 @@ watch(answer, (newVal, oldVal) => {
     <!-- Mutar el Array con la info nueva - PUSH -->
     <button @click="addMoviePush()">Add Movie - PUSH</button>
     <!-- Creamos Nuevos Array - CONCAT -->
-    <button @click="addMovieConcat()">Add Movie - CONCAT</button>
+    <!-- <button @click="addMovieConcat()">Add Movie - CONCAT</button> -->
     <p v-for="(movie, index) in movieList" :key="index">{{ movie }}</p>
   </div>
   <div id="ejemplo-4">
@@ -231,6 +249,14 @@ watch(answer, (newVal, oldVal) => {
     <p>Preguntame una pregunta closeEnded Question!</p>
     <input type="text" v-model="question" />
     <h5>{{ answer }}</h5>
+  </div>
+
+  <div id="class-ejercicio">
+    <h1>{{ question2 }}</h1>
+    <input type="text" v-model="answer2" maxlength="3" />
+    <p v-if="jsonResponse">{{ jsonResponse }}</p>
+    <p v-if="jsonUserResponse">{{ jsonUserResponse }}</p>
+    <img v-if="jsonImage" v-bind:src="jsonImage" alt="Some random gif...." />
   </div>
 </template>
 
